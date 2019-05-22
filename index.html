@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- when using the mode "code", it's important to specify charset utf-8 -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <link href="jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <link href="custom.css" rel="stylesheet" type="text/css">
+    <script src="jsoneditor.min.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            //TODO Add your firebase config here
+        };
+    
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <div id="jsoneditor" style="width: 100%; height: 900px;"></div>
+
+
+
+
+    <script>
+
+        // create the editor
+        var container = document.getElementById("jsoneditor");
+        var options = {
+
+            onChangeJSON: function(json){
+                console.log(json)
+                firebase.database().ref('/steps').set(json);
+            },
+
+            onChangeText: function(jsonString){
+                console.log(jsonString)
+            }
+        };
+
+        var json = {}
+
+
+        var stepsRef = firebase.database().ref('/steps');
+        stepsRef.once('value').then (function(snapshot) {
+            
+            json = snapshot.val()
+            console.log(json)
+            if(json){
+                var editor = new JSONEditor(container, options, json);
+                        
+                // get json
+                var json = editor.get();
+            }
+        });
+
+
+
+            
+    </script>
+</body>
+</html>
