@@ -16,7 +16,7 @@ Modified to edit firebase real time db with additional options available
 
 Make the necessary changes to index.hmtl
   - Add firebase config
-  - Moidify  [name_of_your_root] to match your json root in firebase realtime db, Lines 56 and 69
+  - Moidify  [name_of_your_root] to match your json root in firebase realtime db
   
 # Docs
 
