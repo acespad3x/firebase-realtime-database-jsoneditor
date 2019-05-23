@@ -7,6 +7,9 @@ Modified to edit firebase real time db with additional options available
   - Find by ID
   - Query filterfing 
   - Seraching 
+  - Duplicate objects
+  - Insert objects
+  - Change types
   - and more
   
 # Usage
