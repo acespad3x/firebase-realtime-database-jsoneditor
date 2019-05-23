@@ -15,7 +15,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
     <script>
         var firebaseConfig = {
-            //TODO Add your firebase config here
+           //TODO , Add Firebase config here
         };
     
         // Initialize Firebase
@@ -25,29 +25,30 @@
 <body>
     <div id="jsoneditor" style="width: 100%; height: 900px;"></div>
 
-
-
-
     <script>
-
         // create the editor
         var container = document.getElementById("jsoneditor");
         var options = {
-
+            
+            //Fires when any of the the json in the json edidor changes
             onChangeJSON: function(json){
-                console.log(json)
-                firebase.database().ref('/steps').set(json);
+                
+                /* chnage  [name_of_your_root] to match your json root in firebase realtime db*/
+                
+                firebase.database().ref('/name_of_your_root').set(json);
             },
 
             onChangeText: function(jsonString){
-                console.log(jsonString)
+                // Do something with the raw json
             }
         };
 
         var json = {}
+        
+        
+         /* chnage  [name_of_your_root] to match your json root in firebase realtime db*/
 
-
-        var stepsRef = firebase.database().ref('/steps');
+        var stepsRef = firebase.database().ref('/name_of_your_root');
         stepsRef.once('value').then (function(snapshot) {
             
             json = snapshot.val()
@@ -59,10 +60,7 @@
                 var json = editor.get();
             }
         });
-
-
-
             
     </script>
 </body>
-</html>
+</html
