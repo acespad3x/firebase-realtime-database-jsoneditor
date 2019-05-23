@@ -5,7 +5,7 @@ This webapp is based off https://github.com/josdejong/jsoneditor
 Modified to edit firebase real time db with additional options available
   - Sorting 
   - Find by ID
-  - Query filterfing 
+  - Query filtering 
   - Seraching 
   - Duplicate objects
   - Insert objects
