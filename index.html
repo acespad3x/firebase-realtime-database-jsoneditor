@@ -48,8 +48,8 @@
         
          /* chnage  [name_of_your_root] to match your json root in firebase realtime db*/
 
-        var stepsRef = firebase.database().ref('/name_of_your_root');
-        stepsRef.once('value').then (function(snapshot) {
+        var rootRef = firebase.database().ref('/name_of_your_root');
+        rootRef.once('value').then (function(snapshot) {
             
             json = snapshot.val()
             console.log(json)
